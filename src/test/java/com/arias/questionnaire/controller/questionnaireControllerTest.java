@@ -52,11 +52,11 @@ public class questionnaireControllerTest {
         optionDto.setText("Bueno");
         optionDto.setText("Excelente");
         optionDtoList.add(optionDto);
-        questionDto1.setOptionDtoList(optionDtoList);
+        questionDto1.setOptions(optionDtoList);
 
 
 
-        MvcResult resultadoLibroPrestado = mvc.perform(
+        MvcResult resultGetQuestionnaire = mvc.perform(
                         MockMvcRequestBuilders.post("/questionnaire")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(questionDtoList)))
@@ -64,8 +64,8 @@ public class questionnaireControllerTest {
                 .andReturn();
 
 
-        String resultadoPrestamo = resultadoLibroPrestado.getResponse().getContentAsString();
-        Assertions.assertEquals("1 preguntas creadas con exito", resultadoPrestamo);
+        String resultado = resultGetQuestionnaire.getResponse().getContentAsString();
+        Assertions.assertEquals("1 preguntas creadas con exito", resultado);
 
         mvc.perform(MockMvcRequestBuilders
                         .get("/questionnaire/")

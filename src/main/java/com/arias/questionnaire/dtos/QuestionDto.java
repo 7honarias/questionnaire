@@ -12,5 +12,5 @@ import java.util.List;
 public class QuestionDto {
     private String text;
     private String type;
-    private List<OptionDto> optionDtoList;
+    private List<OptionDto> options;
 }

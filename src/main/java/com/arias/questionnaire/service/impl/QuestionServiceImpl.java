@@ -38,7 +38,7 @@ public class QuestionServiceImpl implements IQuestionService {
             question.setQuestion(questionDto.getText());
             if (questionDto.getType().equals(TypeQuestion.MULTIPLE.name())){
                 Set<Option> options = new HashSet<>();
-                for(OptionDto answerDto : questionDto.getOptionDtoList()){
+                for(OptionDto answerDto : questionDto.getOptions()){
                     Option option = new Option();
                     option.setText(answerDto.getText());
                     options.add(option);
